@@ -296,7 +296,11 @@ Dict = {"T": range(1,len(train_accuracy_history_after)+1),
         "Test_Loss": test_loss_history_before,
         "Memory": Memory+[m / 1024**2 for m in mem]}
 
+
 pwd = os.getcwd()
+
+if not os.path.exists(pwd+'/Data'):
+    os.mkdir(pwd+'/Data')
 
 # failure count data + covariates
 FC_DF = pd.DataFrame.from_dict(data=Dict).set_index("T")
